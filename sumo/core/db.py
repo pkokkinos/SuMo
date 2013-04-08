@@ -2,11 +2,11 @@ import sqlite3
 
 from sumo.core.constants import *
 
-#######################
-# Init compute force db 
-#######################
-def init_computeforce_db():
 
+def init_computeforce_db():
+	"""Initiliazes connection to database	
+	"""
+	
 	conn = sqlite3.connect("./" +DB_NAME)
  
 	cursor = conn.cursor()
@@ -17,12 +17,21 @@ def init_computeforce_db():
 
 	conn.close()
 
-	
-#######################
-# Add metric signal to db
-#######################
-def add_metric_signal_to_db(start, end, metric, instance_id, signal):
 
+def add_metric_signal_to_db(start, end, metric, instance_id, signal):
+	"""Add signal of a particular metric and of particular instance to db.
+		:param start: start time of signal.
+		:type start: datetime.
+		:param end: end time of signal.
+		:type end: datetime.
+		:param metric: metric's name.
+		:type metric: string.
+		:param instance_id: instance's id.
+		:type instance_id: int.
+		:param signal: metric's data.
+		:type signal: dict.	
+	"""
+	
 	conn = sqlite3.connect("./" +DB_NAME)
 	cursor = conn.cursor()
 
@@ -37,11 +46,21 @@ def add_metric_signal_to_db(start, end, metric, instance_id, signal):
 	conn.close()
 				
 
-#######################
-# Get a metric's signals from db
-#######################
 def get_metric_signals_from_db(start, end, metric, instance_id):
-
+	"""Get signal of a particular metric and of particular instance from db.
+		:param start: start time of signal.
+		:type start: datetime.
+		:param end: end time of signal.
+		:type end: datetime.
+		:param metric: metric's name.
+		:type metric: string.
+		:param instance_id: instance's id.
+		:type instance_id: int.
+		:param signal: metric's values.
+		:type signal: list.	
+		:returns: dict -- a dict of metric's data.
+	"""
+	
 	conn = sqlite3.connect("./" +DB_NAME)
 	cursor = conn.cursor()
 
@@ -60,11 +79,11 @@ def get_metric_signals_from_db(start, end, metric, instance_id):
 	return metric_signals
 
 
-#######################
-# Add metric datapoints to db
-#######################
 def add_metric_datapoints_to_db(datapoints):
-
+	"""Add metric's datapoints to db.
+		:param datapoints: the datapoints.
+		:type datapoints: datapoints.	
+	"""
 	signal = datapoints_to_signal(datapoints)
 
 	db.init_computeforce_db()

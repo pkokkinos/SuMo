@@ -1,13 +1,3 @@
-
-"""
-.. module:: cloudData
-  :synopsis: Collecting Monitoring Data
-
-.. moduleauthor:: Panagiotis Kokkinos <kokkinop@ceid.upatras.gr> , Aristotelis Kretsis <akretsis@ceid.upatras.gr>
-
-
-"""
-
 import boto
 import datetime
 import isodate
@@ -29,19 +19,20 @@ from sumo.core import utils
 from sumo.core.constants import *
 from sumo.core.keys import *
 
+"""
+.. module:: cloudData
+  :synopsis: Collecting Monitoring Data
 
+.. moduleauthor:: Panagiotis Kokkinos <kokkinop@ceid.upatras.gr> , Aristotelis Kretsis <akretsis@ceid.upatras.gr>
+"""
 
 
 def connect_to_aws_ec2(region = None):
-	"""Connect to AWS EC2
 
+	"""Connect to AWS EC2
 		:param region: The region to use.
 		:type region: str.
-		:param state: Current state to be in.
-		:type state: bool.
-		:returns:  int -- the return code.
-		:raises: AttributeError, KeyError
-
+		:returns: EC2Connection -- a connection to the given region or to any region if 
 	"""
 
 	if region != None:

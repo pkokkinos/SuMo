@@ -7,18 +7,15 @@ import numpy
   :synopsis: Spark or spike detection based on return
 
 .. moduleauthor:: Kokkinos Panagiotis <kokkinop@gmail.com>, Kretsis Aristotelis <aakretsis@gmail.com> , Poluzois Soumplis <polibios@gmail.com>
-
 """
 
 def based_on_return(signal):
 
 	"""Spark or spike detection based on return
-
-                :param signal: The signal to use.
-                :type signal: list.
-                :returns:  int -- the index in the signal where sparks where found
-       
-        """
+		:param signal: The signal to use.
+		:type signal: list.
+		:returns:  list -- list of indexes in the signal where sparks have been found       
+	"""
 	
 	alpha = 3
 

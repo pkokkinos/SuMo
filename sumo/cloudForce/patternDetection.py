@@ -5,20 +5,16 @@ import numpy
 """
 .. module:: patternDetection
   :synopsis: Pattern detection based on cross-correlation
-
 .. moduleauthor:: Kokkinos Panagiotis <kokkinop@gmail.com>, Kretsis Aristotelis <aakretsis@gmail.com> , Poluzois Soumplis <polibios@gmail.com>
-
 """
 
 
 def based_on_xcorr(signal):
 
 	"""Pattern detection based on cross-correlation.
-
 		:param signal: Signal to use.
 		:type signal: list.
-		:returns:  something.
-
+		:returns: list, list - two lists: the first containing the size of each pattern identified and the second the index of the input signal where its pattern begins.
 	"""
 	
 	limit1 = 0.998
